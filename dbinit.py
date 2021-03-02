@@ -1,9 +1,12 @@
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
-from urllib.request import urlopen
 from urllib.parse import quote_plus
 from bs4 import BeautifulSoup
 import time
+from pymongo import MongoClient
+
+client = MongoClient('localhost', 27017)
+db = client.dbhh99
 
 # 크롬드라이버설정
 chrome_driver_dir = './static/bin/chromedriver'
@@ -16,10 +19,12 @@ driver = webdriver.Chrome(
 
 # 인스타 태그 검색어 아스키 코드 처리  이후 확장성을 위해 검색어 별도 변수 선언
 base_url = 'https://www.instagram.com/explore/tags/'
-plus_url = '제로웨이스트'
+plus_url = {'제로웨이스트'}
 url = base_url + quote_plus(plus_url)
 driver.get(url);
 action = ActionChains(driver)
+
+db.db_zerowaste.drop()
 
 time.sleep(1)  # 크롬 지연//
 
@@ -38,30 +43,35 @@ time.sleep(3)  # 크롬 지연//
 html = driver.page_source
 soup = BeautifulSoup(html, 'html.parser')
 
-insta = soup.select('.v1Nh3.kIKUG._bz0w')
-article_base = "https://www.instagram.com"
-for i in insta:
-    img_url = i.select_one('.KL4Bh').img['src']
-    article_url = i.select_one('a')['href']
-    article_url = article_base + article_url
+insta = soup.select('.v1Nh3.kIKUG._bz0w')  # 이미지 URL 정보가 들어있는 클래스 타겟팅 -> 전체 게시물 수 파악
+article_base = "https://www.instagram.com"  # 게시물 URL 제작을 위한 사전 작업
+
+for i in insta:  # 이미지가 들어있는 게시물 전체 갯수 만큼 반복문
+    img_url = i.select_one('.KL4Bh').img['src']  # 한개의 게시물에 있는 이미지 타겟팅
+    article_url = i.select_one('a')['href']  # 한개의 게시물에 있는 원문 URL 정보 타겟팅
+
+    article_url = article_base + article_url  # 활용 가능한 URL 로 다듬어주기
     # print(img_url, article_url)
+    time.sleep(3)
+    driver.get(article_url)  # 획득한 원문 URL로 크롬 이동 -> 게시물 내용물들 긁어오기 위함
+    time.sleep(5)
 
-time.sleep(3)
-driver.find_elements_by_css_selector('._9AhH0')[0].click()
-time.sleep(4)
-titles = driver.find_elements_by_css_selector('.sqdOP.yWX7d._8A5w5.ZIAjV')
+    title = driver.find_elements_by_css_selector('.sqdOP.yWX7d._8A5w5.ZIAjV')[0].text  # 작성자(제목) 타겟팅
+    tags = driver.find_elements_by_css_selector('.xil3i')  # 해당 게시물에 있는 태그들 갈무리
 
-for i in titles:
-    print(i.text)
+    tag_list = []  # 한개의 게시물에 여러 태그가 있기 때문에 db 저장시 한 줄에 여러 태그를 포함 시키기 위한 리스트 선언
 
-    #sd
+    for i in tags:
+        # print(title.text, i.text)
+        tag_list.append(i.text)
+    # 태그가 여러개 이기 때문에 반목문으로 하나씩 뽑아서 리스트에 담아줌
 
-# driver.quit()  # 메모리 절약을 위한 완료 후 크롬종료
+    doc = {
+        'title': title,
+        'tags': tag_list,
+        'img_url': img_url,
+        'article_url': article_url
+    }  # 만들어진 데이터들을 db에 넣기 위해 딕셔너리로 가공
 
-# react-root > section > main > article > div.EZdmt > div > div > div:nth-child(1) > div:nth-child(1) > a
-# react-root > section > main > article > div.EZdmt > div > div > div:nth-child(1) > div:nth-child(2) > a
-#
-# https://www.instagram.com/p/CLrDKosM44t/
-
-
-# .sqdOP.yWX7d._8A5w5.ZIAjV
+    db.db_zerowaste.insert_one(doc)  # DB 저장
+    print(doc)
