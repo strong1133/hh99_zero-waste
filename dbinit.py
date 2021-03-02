@@ -54,6 +54,8 @@ titles = driver.find_elements_by_css_selector('.sqdOP.yWX7d._8A5w5.ZIAjV')
 for i in titles:
     print(i.text)
 
+    #sd
+
 # driver.quit()  # 메모리 절약을 위한 완료 후 크롬종료
 
 # react-root > section > main > article > div.EZdmt > div > div > div:nth-child(1) > div:nth-child(1) > a
