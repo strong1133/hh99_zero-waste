@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{{url_for('static', filename='main.js')}}"></script>
+    <script src="{{url_for('static', filename='register.js')}}"></script>
     <script src="https://kit.fontawesome.com/64d790b45a.js"
             crossorigin="anonymous">
     </script>
@@ -27,7 +27,7 @@
                     <span class="input_icon">
                         <i class="fas fa-user-tag"></i>
                     </span>
-            <input class="input_box" type="text" placeholder="이름">
+            <input class="input_box" type="text" placeholder="이름" id="register-name">
             <span class="input_icon">
 <!--                        <i class="far fa-check-square"></i>-->
                     </span>
@@ -36,7 +36,7 @@
                     <span class="input_icon">
                         <i class="fas fa-user-check"></i>
                     </span>
-            <input class="input_box" type="text" placeholder="아이디">
+            <input class="input_box" type="text" placeholder="아이디" id="register-id">
             <span class="input_icon">
 <!--                        <i class="far fa-check-square"></i>-->
                     </span>
@@ -46,7 +46,7 @@
                     <span class="input_icon">
                         <i class="fas fa-unlock-alt"></i>
                     </span>
-            <input class="input_box" type="text" placeholder="비밀번호">
+            <input class="input_box" type="password" placeholder="비밀번호" id="register-pw">
             <span class="input_icon">
 <!--                        <i class="far fa-check-square"></i>-->
                     </span>
@@ -55,7 +55,7 @@
                     <span class="input_icon">
                         <i class="fas fa-envelope"></i>
                     </span>
-            <input class="input_box" type="text" placeholder="이메일">
+            <input class="input_box" type="text" placeholder="이메일" id="register-email">
             <span class="input_icon">
 <!--                        <i class="far fa-check-square"></i>-->
                     </span>
@@ -63,7 +63,7 @@
         </div>
       </form>
       <div class="btn_sign_up">
-        <button onclick="" type="button" class="">회원 가입하기</button>
+        <button onclick="joinblankcheck()" type="button" class="">회원 가입하기</button>
       </div>
     </div>
     <footer>

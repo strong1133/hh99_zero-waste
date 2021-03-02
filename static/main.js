@@ -18,3 +18,4 @@ function tabshow(){
         $('.see-all-area').hide()
     })
 }
+
