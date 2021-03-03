@@ -2,14 +2,17 @@ import requests
 from flask import Flask, render_template
 from bs4 import BeautifulSoup
 from pymongo import MongoClient
+from pymongo import MongoClient
 
 app = Flask(__name__)
 client = MongoClient('localhost', 27017)
+db = client.dbhh99
 
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    articles = list(db.db_zerowaste.find({}, {'_id': False}))
+    return render_template('index.html', articles=articles)
 
 
 @app.route('/register')
