@@ -19,12 +19,12 @@ driver = webdriver.Chrome(
 
 # 인스타 태그 검색어 아스키 코드 처리  이후 확장성을 위해 검색어 별도 변수 선언
 base_url = 'https://www.instagram.com/explore/tags/'
-plus_url = {'제로웨이스트'}
+plus_url = 'zerowaste'
 url = base_url + quote_plus(plus_url)
 driver.get(url);
 action = ActionChains(driver)
 
-db.db_zerowaste.drop()
+# db.db_zerowaste.drop()
 
 time.sleep(1)  # 크롬 지연//
 

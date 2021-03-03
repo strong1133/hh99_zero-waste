@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-    <script src="{{url_for('static', filename='main.js')}}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
     <title>모아보기</title>
   </head>
   <body>
@@ -28,6 +28,7 @@
       <hr/>
 
       <div class="content-container">
+        {#   see-all-area   #}
         <div class="see-all-area">
           <div class="card-container">
             <div class="card">
@@ -40,16 +41,16 @@
                 <div class="post_id">
                   <p>slow_um</p>
                 </div>
-                <div class="desc">
-                  요새손난로 다음으로 많이나가는
-                  슬로움 프로듀스백😀😀🙏
-                  똥손이지만 열심히 포장하려고해요😂
-                  필요없는 비닐포장대신 다같이 프로듀스백으로 쓰레기를 줄여보아용🥰🐢❤️
+                <div class="desc" id="1-contents">
+                  요새손난로 다음으로 많이나가는 슬로움 프로듀스백😀😀🙏 똥손이지만 열심히
+                  포장하려고해요😂 필요없는 비닐포장대신 다같이 프로듀스백으로 쓰레기를 줄여보아용🥰🐢❤️
+                  <textarea id="1-edit" name="" cols="10" rows="8"></textarea>
                 </div>
-                <div class="edit-btn"><i class="fas fa-plus-circle"></i></div>
-              </div>
-              <div class="card-footer">
-                <textarea name="" cols="30" rows="10"></textarea>
+                <div class="edit-btn" onclick="textarea_edit_post(1)"><i class="fas fa-plus-circle" id="1-icon"></i>
+                </div>
+                <div class="body-right">
+                  <button class="save-btn" id="1-save-btn">저장</button>
+                </div>
               </div>
             </div>
 
@@ -63,16 +64,13 @@
                 <div class="post_id">
                   <p>slow_um</p>
                 </div>
-                <div class="desc">
-                  요새손난로 다음으로 많이나가는
-                  슬로움 프로듀스백😀😀🙏
-                  똥손이지만 열심히 포장하려고해요😂
-                  필요없는 비닐포장대신 다같이 프로듀스백으로 쓰레기를 줄여보아용🥰🐢❤️
+                <div class="desc" id="2-contents">
+                  요새손난로 다음으로 많이나가는 슬로움 프로듀스백😀😀🙏 똥손이지만 열심히
+                  포장하려고해요😂 필요없는 비닐포장대신 다같이 프로듀스백으로 쓰레기를 줄여보아용🥰🐢❤️
+                  <textarea id="2-edit" name="" cols="10" rows="8"></textarea>
                 </div>
-                <div class="edit-btn"><i class="fas fa-plus-circle"></i></div>
-              </div>
-              <div class="card-footer">
-                <textarea name="" cols="30" rows="10"></textarea>
+                <div class="edit-btn" onclick="textarea_edit_post(2)"><i class="fas fa-plus-circle" id="2-icon"></i>
+                </div>
               </div>
             </div>
 
@@ -86,16 +84,13 @@
                 <div class="post_id">
                   <p>slow_um</p>
                 </div>
-                <div class="desc">
-                  요새손난로 다음으로 많이나가는
-                  슬로움 프로듀스백😀😀🙏
-                  똥손이지만 열심히 포장하려고해요😂
-                  필요없는 비닐포장대신 다같이 프로듀스백으로 쓰레기를 줄여보아용🥰🐢❤️
+                <div class="desc" id="3-contents">
+                  요새손난로 다음으로 많이나가는 슬로움 프로듀스백😀😀🙏 똥손이지만 열심히
+                  포장하려고해요😂 필요없는 비닐포장대신 다같이 프로듀스백으로 쓰레기를 줄여보아용🥰🐢❤️
+                  <textarea id="3-edit" name="" cols="10" rows="8"></textarea>
                 </div>
-                <div class="edit-btn"><i class="fas fa-plus-circle"></i></div>
-              </div>
-              <div class="card-footer">
-                <textarea name="" cols="30" rows="10"></textarea>
+                <div class="edit-btn" onclick="textarea_edit_post(3)"><i class="fas fa-plus-circle" id="3-icon"></i>
+                </div>
               </div>
             </div>
 
@@ -109,16 +104,13 @@
                 <div class="post_id">
                   <p>slow_um</p>
                 </div>
-                <div class="desc">
-                  요새손난로 다음으로 많이나가는
-                  슬로움 프로듀스백😀😀🙏
-                  똥손이지만 열심히 포장하려고해요😂
-                  필요없는 비닐포장대신 다같이 프로듀스백으로 쓰레기를 줄여보아용🥰🐢❤️
+                <div class="desc" id="4-contents">
+                  요새손난로 다음으로 많이나가는 슬로움 프로듀스백😀😀🙏 똥손이지만 열심히
+                  포장하려고해요😂 필요없는 비닐포장대신 다같이 프로듀스백으로 쓰레기를 줄여보아용🥰🐢❤️
+                  <textarea id="4-edit" name="" cols="10" rows="8"></textarea>
                 </div>
-                <div class="edit-btn"><i class="fas fa-plus-circle"></i></div>
-              </div>
-              <div class="card-footer">
-                <textarea name="" cols="30" rows="10"></textarea>
+                <div class="edit-btn" onclick="textarea_edit_post(4)"><i class="fas fa-plus-circle" id="4-icon"></i>
+                </div>
               </div>
             </div>
 
@@ -132,63 +124,44 @@
                 <div class="post_id">
                   <p>slow_um</p>
                 </div>
-                <div class="desc">
-                  요새손난로 다음으로 많이나가는
-                  슬로움 프로듀스백😀😀🙏
-                  똥손이지만 열심히 포장하려고해요😂
-                  필요없는 비닐포장대신 다같이 프로듀스백으로 쓰레기를 줄여보아용🥰🐢❤️
+                <div class="desc" id="5-contents">
+                  요새손난로 다음으로 많이나가는 슬로움 프로듀스백😀😀🙏 똥손이지만 열심히
+                  포장하려고해요😂 필요없는 비닐포장대신 다같이 프로듀스백으로 쓰레기를 줄여보아용🥰🐢❤️
+                  <textarea id="5-edit" name="" cols="10" rows="8"></textarea>
                 </div>
-                <div class="edit-btn"><i class="fas fa-plus-circle"></i></div>
-              </div>
-              <div class="card-footer">
-                <textarea name="" cols="30" rows="10"></textarea>
+                <div class="edit-btn" onclick="textarea_edit_post(5)"><i class="fas fa-plus-circle" id="5-icon"></i>
+                </div>
               </div>
             </div>
 
-            <div class="card">
-              <div class="card-header">
-                <img
-                    src="https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-15/sh0.08/e35/s640x640/122782343_146507537217893_4840681683215358924_n.jpg?tp=1&_nc_ht=scontent-ssn1-1.cdninstagram.com&_nc_cat=105&_nc_ohc=Pti6V-38niQAX853FQj&oh=793daf4b523c5b82e281e5055823d12d&oe=6065BA64"
-                    alt="">
-              </div>
-              <div class="card-body">
-                <div class="post_id">
-                  <p>slow_um</p>
-                </div>
-                <div class="desc">
-                  요새손난로 다음으로 많이나가는
-                  슬로움 프로듀스백😀😀🙏
-                  똥손이지만 열심히 포장하려고해요😂
-                  필요없는 비닐포장대신 다같이 프로듀스백으로 쓰레기를 줄여보아용🥰🐢❤️
-                </div>
-                <div class="edit-btn"><i class="fas fa-plus-circle"></i></div>
-              </div>
-              <div class="card-footer">
-                <textarea name="" cols="30" rows="10"></textarea>
-              </div>
-            </div>
           </div>
         </div>
+        {#   see-search-area   #}
         <div class="see-search-area">
           <div class="card-container">
+
             {% for article in articles %}
-            <div class="card" id="article-{{ article.title }}">
-              <div class="card-header">
-                <img
-                    src="{{ article.img_url }}"
-                    alt="">
-                <div class="search-desc">
-                  {{ article.tags }}
+              <div class="card" id="article-{{ article.title }}">
+                <div class="card-header">
+                  <img
+                      src="{{ article.img_url }}"
+                      alt="">
+                  <div class="search-desc">
+                    {% for tag in article.tags %}
+                      <div class="tag">
+                        <span>{{ tag }}</span>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="search-card-body">
+                    <a class="search-title" href="{{ article.article_url }}">{{ article.title }}</a>
+                    <i class="far fa-bookmark "></i>
+                    <i class="fas fa-bookmark none"></i>
+                  </div>
                 </div>
               </div>
-              <div class="card-body">
-                <div class="search-card-body">
-                  <a class="search-title" href="{{ article.article_url }}">{{ article.title }}</a>
-                  <i class="far fa-bookmark "></i>
-                  <i class="fas fa-bookmark none"></i>
-                </div>
-              </div>
-            </div>
             {% endfor %}
 
 

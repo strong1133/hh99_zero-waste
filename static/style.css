@@ -24,6 +24,15 @@ body {
     flex-direction: row;
     justify-content: space-between;
 }
+.nav-right{
+    font-size: 24px;
+}
+.nav-right:hover{
+    color: salmon;
+    transform: scale(1.2);
+    transition: all 220ms ease;
+
+}
 
 .tab {
     max-width: 100%;
@@ -101,8 +110,43 @@ hr {
 .edit-btn {
     color: salmon;
     position: absolute;
-    right: 11px;
-    bottom: 10px;
+    right: 10px;
+    bottom: 7px;
+    z-index: 10;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.edit-btn > i{
+    font-size: 25px;
+}
+.edit-btn > i.active {
+    transform: rotate(45deg);
+    transition: all 200ms linear;
+}
+
+.edit-btn > i.deactive {
+    transform: rotate(0deg);
+    transition: all 200ms linear;
+}
+.save-btn{
+    border: none;
+    background-color: cadetblue;
+    width: 40px;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    bottom: 85px;
+    display: none;
+    color: white;
+}
+.body-right{
+    text-align: center;
+    position: relative;
+
+}
+.save-btn.active{
+    display: block;
 }
 
 .post_id > p {
@@ -115,11 +159,36 @@ hr {
     margin: 5px;
     font-size: 13px;
     background-color: whitesmoke;
+    position: relative;
+
 }
 
 .card-footer {
     display: none;
+    position: absolute;
+    /*bottom: 50px;*/
+
 }
+.desc > textarea{
+    /*margin: 5px;*/
+    font-size: 13px;
+    background-color: whitesmoke;
+    padding: 5px;
+    width: 96.5%;
+    height: 67px;
+    border: 1px solid cadetblue;
+    border-radius: 6px;
+    resize: none;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    display: none;
+    text-align: left;
+}
+.card-footer > textarea{
+
+}
+
 
 .search-card-body {
     display: flex;
@@ -147,16 +216,22 @@ hr {
 .search-desc {
     position: absolute;
     top: 0px;
-    padding: 60px;
+    padding: 30px;
     text-align: center;
     color: white;
-    font-weight: 650;
-    width: 190px;
-    height: 130px;
+    font-weight: 660;
+    font-size: 14px;
+    width: 250px;
+    height: 190px;
     border-radius: 13px;
     background-color: lightslategray;
     opacity: 0;
     cursor: default;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow: hidden;
+    justify-content: center;
 
 }
 
