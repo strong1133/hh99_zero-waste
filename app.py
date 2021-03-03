@@ -19,7 +19,7 @@ def home():
 def register():
     return render_template('register.html')
 
-#ㅁㄴㅇ
+#
 @app.route('/login')
 def login():
     return render_template('login.html')
