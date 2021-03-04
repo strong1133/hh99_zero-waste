@@ -6,7 +6,7 @@ function join_blank_check() {
     let name = $('#register-name').val()
     let id = $('#register-id').val()
     let pw = $('#register-pw').val()
-    let email = $('#register-email').val()
+
 
     if (name == '') {
         alert('이름을 입력하세요')
@@ -17,9 +17,6 @@ function join_blank_check() {
     } else if (pw == '') {
         alert('비밀번호를 입력하세요')
         return;
-    } else if (email == '') {
-        alert('이메일을 입력하세요')
-        return;
     }
     if (!$("#help-id").hasClass("is-checked")) {
         alert("아이디 중복확인을 해주세요.")
@@ -28,8 +25,8 @@ function join_blank_check() {
     if (checkPassword(pw) == false) {
         return;
     }
-
     alert('가입을 환영합니다. ' + name + '님')
+    register()
     window.location.href = "/login"
 }
 
@@ -39,8 +36,22 @@ function overlap_check() {
         alert('아이디를 입력하세요')
         return;
     }
-    $('#help-id').addClass('is-checked')
-    alert('사용가능한 아이디 입니다.')
+    $.ajax({
+        type: 'POST',
+        url: '/register/overlap_check',
+        data: {
+            'id_give': id
+        },
+        success: function (response) {
+
+            if (response["exists"]) {
+                alert('이미 존재 하는 아이디 입니다.')
+            } else {
+                $('#help-id').addClass('is-checked')
+                alert('사용가능한 아이디 입니다.')
+            }
+        }
+    })
 }
 
 function checkPassword(pw) {
@@ -63,4 +74,25 @@ function checkPassword(pw) {
     return true;
 }
 
+function register() {
+    let name = $('#register-name').val()
+    let id = $('#register-id').val()
+    let pw = $('#register-pw').val()
 
+    $.ajax({
+        type: 'POST',
+        url: '/register/save',
+        data: {
+            id_give: id,
+            pw_give: pw,
+            name_give: name,
+            intro_give: '',
+        },
+        success: function (response) {
+            if (response['result'] == 'success') {
+                window.location.href = '/login'
+            } else {
+            }
+        }
+    })
+}

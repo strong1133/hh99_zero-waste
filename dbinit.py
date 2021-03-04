@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import time
 from pymongo import MongoClient
 
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb://strong1133:tjrwls455@15.164.102.138', 27017)
 db = client.dbhh99
 
 # 크롬드라이버설정
@@ -19,9 +19,9 @@ driver = webdriver.Chrome(
 
 # 인스타 태그 검색어 아스키 코드 처리  이후 확장성을 위해 검색어 별도 변수 선언
 base_url = 'https://www.instagram.com/explore/tags/'
-plus_url = 'zerowaste'
+plus_url = '환경운동'
 url = base_url + quote_plus(plus_url)
-driver.get(url);
+driver.get('https://www.instagram.com/accounts/login/?next=%2F&source=logged_out_half_sheet');
 action = ActionChains(driver)
 
 # db.db_zerowaste.drop()
@@ -29,8 +29,8 @@ action = ActionChains(driver)
 time.sleep(1)  # 크롬 지연//
 
 # 인스타 로그인 요청으로 인한 로그인 자동화
-driver.find_elements_by_name("username")[0].send_keys("strong1133@naver.com")
-driver.find_elements_by_name("password")[0].send_keys("djaak455@")
+driver.find_elements_by_name("username")[0].send_keys("h99test455@gmail.com")
+driver.find_elements_by_name("password")[0].send_keys("gkdgo99@")
 driver.find_element_by_xpath("//*[@id='loginForm']/div/div[3]/button").submit()
 
 time.sleep(2)  # 크롬 지연//
@@ -70,7 +70,7 @@ for i in insta:  # 이미지가 들어있는 게시물 전체 갯수 만큼 반�
         'title': title,
         'tags': tag_list,
         'img_url': img_url,
-        'article_url': article_url
+        'article_url': article_url,
     }  # 만들어진 데이터들을 db에 넣기 위해 딕셔너리로 가공
 
     db.db_zerowaste.insert_one(doc)  # DB 저장

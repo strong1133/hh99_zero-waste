@@ -7,12 +7,25 @@ body {
 
 }
 
+#placeholder_img {
+    width: 80%;
+    position: absolute;
+    left: 120px;
+    border-radius: 50px;
+}
+
 .wrap {
     width: 100%;
     height: 100vh;
+
     background-color: whitesmoke;
 }
 
+
+#nav-icon:hover{
+    transition: none;
+    transform: none;
+}
 .nav {
     max-width: 100%;
     height: 32px;
@@ -27,6 +40,11 @@ body {
 
 .nav-right {
     font-size: 24px;
+}
+
+.nav-right > a > i {
+    text-decoration: none;
+    color: white;
 }
 
 .nav-right:hover {
@@ -155,18 +173,25 @@ hr {
     display: block;
 }
 
-.post_id > p {
+.post_id > a {
     margin: 0 5px;
-    font-size: 25px;
+    font-size: 18px;
     font-weight: 800;
+    color: black;
 }
 
 .desc {
-    margin: 5px;
+    margin: 6px;
+    height: 70px;
     font-size: 13px;
+    padding: 5px;
+    border-radius: 10px;
     background-color: whitesmoke;
     position: relative;
+}
 
+.empty-memo {
+    padding: 2px;
 }
 
 .card-footer {
@@ -181,13 +206,13 @@ hr {
     font-size: 13px;
     background-color: whitesmoke;
     padding: 5px;
-    width: 96.5%;
-    height: 67px;
+    width: 95.0%;
+    height: 65px;
     border: 1px solid cadetblue;
     border-radius: 6px;
     resize: none;
     position: absolute;
-    right: 0px;
+    right: 3px;
     bottom: 0px;
     display: none;
     text-align: left;
@@ -305,9 +330,10 @@ hr {
     border-radius: 4px;
 }
 
-#register-id{
+#register-id {
     width: 170px;
 }
+
 input:focus {
     outline: none;
 }
@@ -374,18 +400,18 @@ button:hover {
 }
 
 #help-password {
-    width: 200px;
+    width: 290px;
     position: relative;
     text-align: left;
-    left: 150px;
+    left: 120px;
     margin: -10px;
 }
 
 #help-id {
-    width: 200px;
+    width: 290px;
     position: relative;
     text-align: left;
-    left: 150px;
+    left: 120px;
     margin: -10px;
 }
 
@@ -532,8 +558,9 @@ a:visited {
 }
 
 a:hover {
-    color: darkgreen;
-    font-weight: bold;
+    transition: all 200ms ease;
+    color: black;
+
 }
 
 .login-footer {
@@ -542,3 +569,240 @@ a:hover {
     font-size: 15px;
     color: darkgray;
 }
+
+
+/*====================================================================================================================*/
+/*============================================ my page CSS ============================================================*/
+/*====================================================================================================================*/
+
+user-wrap {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.nav {
+    max-width: 100%;
+    height: 32px;
+    line-height: 35px;
+    padding: 15px;
+    background-color: cadetblue;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+}
+
+
+.nav > a,
+.nav > a:visited {
+    text-decoration: none;
+    color: white;
+
+}
+
+.user-nav-right > a,
+.user-nav-left > a {
+    color: white;
+}
+
+.user-nav-right,
+.user-nav-left {
+    color: white;
+    cursor: pointer;
+}
+
+.user-title-head {
+    background-color: cadetblue;
+    padding: 25px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+}
+
+
+.user-title {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border-bottom: none;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+
+}
+
+.user-greeting {
+    font-size: 30px;
+    margin: -40px 0 -20px 0;
+    padding: 30px;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+
+.user-avata {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    margin: 15px auto;
+    border: 1px solid white;
+    border-radius: 100%;
+
+}
+
+.user-avata-img {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding-top: 10px;
+
+}
+
+.user-profile-info > span {
+    margin-bottom: 10px;
+}
+
+.user-info {
+    display: block;
+    margin-bottom: 150px;
+}
+
+.user-info-container {
+    background-color: white;
+    width: 400px;
+    height: 350px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border: 1px solid cadetblue;
+    border-radius: 11px;
+    box-shadow: 1px 3px 10px black;
+}
+
+.user-basic-info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 300px;
+    margin: 10px auto;
+
+}
+
+.user-basic-info-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+.user-info-items {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-between;*/
+    width: 300px;
+    height: 60px;
+    color: dimgray;
+
+    /*text-align: center;*/
+    /*margin: 10px auto;*/
+}
+
+.user-info-item {
+    text-align: left;
+    padding: 10px;
+
+}
+
+.user-info-input {
+    /*width: 100%;*/
+}
+
+#input-name {
+    width: 90%;
+    padding: 5px;
+    margin-top: -10px;
+    border: 1px solid cadetblue;
+    background-color: #f2f2f2;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+#orderme {
+    margin-top: 20px;
+
+}
+
+
+.textarea {
+    width: 90%;
+    border: 1px solid cadetblue;
+    background-color: #f2f2f2;
+    border-radius: 6px;
+}
+
+.user-info-update {
+    /*padding: 20px 0 0 85px;*/
+    text-align: center;
+    margin: 20px auto;
+    width: 300px;
+    display: flex;
+}
+
+.user-info-update > a {
+    display: inline-block;
+    width: 100px;
+    height: 13px;
+    line-height: 13px;
+    margin: 40px 10px;
+    padding: 14px;
+    font-size: 12px;
+    font-weight: 800;
+    text-align: center;
+    border: 1px solid cadetblue;
+    color: cadetblue;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.user-info-update > a:hover {
+    background-color: cadetblue;
+    color: white;
+}
+
+
+.not-user-info {
+    display: none;
+    width: 500px;
+    height: 300px;
+    margin: 0 auto;
+    border: 1px solid cadetblue;
+    border-radius: 2px;
+    box-shadow: 1px 3px 10px cadetblue;
+}
+
+.index-desc {
+    width: 500px;
+    height: 155px;
+    line-height: 100%;
+    padding-top: 50px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.not-user-info > a {
+    display: inline-block;
+    width: 130px;
+    padding: 12px;
+    border: 1px solid cadetblue;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+
+
+
