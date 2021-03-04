@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="{{ url_for('static', filename='mypage.js') }}"></script>
@@ -36,7 +38,7 @@
 
               <span class="user-profile-about">
                 {% if user_info.intro == '' %}
-                 <b> 자기 소개를 설정해 주세요!</b>
+                  <b> 자기 소개를 설정해 주세요!</b>
                 {% else %}
                   {{ user_info.intro }}
                 {% endif %}

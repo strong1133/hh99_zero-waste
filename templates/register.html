@@ -9,6 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <script src="{{ url_for('static', filename='register.js') }}"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/64d790b45a.js"
             crossorigin="anonymous">
     </script>
@@ -48,12 +50,12 @@
 
           </label>
           <p id="help-password" class="register-help">
-            영문,숫자 조합의 8-20자,특수문자(!@#$%^&*) 사용가능
+            영문,숫자 조합의 8-20자 사용 가능
           </p>
         </div>
       </form>
       <div class="btn_sign_up">
-        <button onclick="join_blank_check()" type="button" class="">회원 가입하기</button>
+        <button onclick="join_blank_check()" type="button" class="">가입하기</button>
       </div>
     </div>
     <footer>

@@ -8,8 +8,16 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
-    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-    <script src="{{url_for('static', filename='login.js')}}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='login.js') }}"></script>
+    <link rel="icon" type="image/png" href="{{ url_for('static',filename='imgeeee.png') }}">
+    <meta property="og:title" content="제로 웨이스트"/>
+    <meta property="og:description" content="지구 살리기 프로젝트! 제로웨이스트 라는 사회운동을 다른 사람들이 어떻게 실천하고 있는지 인스타그램에서 살펴보고 마킹해봐요!"/>
+    <meta property="og:image"
+          content="{{ url_for('static', filename='https://cdn.imweb.me/upload/S2017101059dc82fe9c146/5a71fecf5431c.jpg') }}"/>
+
     <title>로그인</title>
   </head>
   <body>

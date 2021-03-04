@@ -7,6 +7,7 @@ import hashlib
 
 app = Flask(__name__)
 client = MongoClient('localhost', 27017)
+# client = MongoClient('mongodb://strong1133:tjrwls455@15.164.102.138', 27017)
 db = client.dbhh99
 
 SECRET_KEY = 'STRONG'

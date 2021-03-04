@@ -55,8 +55,8 @@ function overlap_check() {
 }
 
 function checkPassword(pw) {
-    if (!/^[a-zA-Z0-9]{5,15}$/.test(pw)) {
-        alert('비밀번호 오류!! 숫자와 영문자 조합으로 10~15자리를 사용해야 합니다.');
+    if (!/^[a-zA-Z0-9]{7,20}$/.test(pw)) {
+        alert('비밀번호 오류!! 숫자와 영문자 조합으로 8~20자리를 사용해야 합니다.');
         return false;
     }
     var checkNumber = pw.search(/[0-9]/g);

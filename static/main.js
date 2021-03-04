@@ -5,6 +5,8 @@ $(document).ready(function () {
 
     if ($('.card').hasClass('true')) {
         $('#placeholder_img').hide();
+    }else {
+        $('#placeholder_img').show();
     }
 })
 
