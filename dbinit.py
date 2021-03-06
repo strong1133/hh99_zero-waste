@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import time
 from pymongo import MongoClient
 
-client = MongoClient('mongodb://strong1133:tjrwls455@15.164.102.138', 27017)
+client = MongoClient('localhost', 27017)
 db = client.dbhh99
 
 # 크롬드라이버설정
