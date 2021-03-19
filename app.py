@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, session, redirect, url_for
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 from pymongo import MongoClient
 import jwt
 import datetime
@@ -11,7 +11,6 @@ client = MongoClient('localhost', 27017)
 db = client.dbhh99
 
 SECRET_KEY = 'STRONG'
-
 
 ######### HTML RENDER ############
 ##################################

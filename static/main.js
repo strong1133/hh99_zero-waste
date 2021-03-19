@@ -1,6 +1,8 @@
 $(document).ready(function () {
+
     tab_show();
-    name = $('.myname_name').text()
+
+    // name = $('.myname_name').text()
     // alert(name)
 
     if ($('.card').hasClass('true')) {
@@ -19,6 +21,7 @@ function tab_show() {
         $('.see-all-area').show()
         $('.see-search-area').hide()
     })
+
     $('.see-search').on('click', function () {
         $('.see-all').removeClass('active')
         $('.see-search').addClass('active')
@@ -55,6 +58,7 @@ function toggle_marking(article_id, type) {
     let $a_like = $(`#${article_id} a[aria-label='${type}']`)
     let $i_like = $a_like.find("i")
     if ($i_like.hasClass("fas")) {
+
         $.ajax({
             type: 'POST',
             url: '/update_marking',

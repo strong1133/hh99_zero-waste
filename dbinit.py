@@ -33,6 +33,7 @@ driver.find_elements_by_name("username")[0].send_keys("h99test455@gmail.com")
 driver.find_elements_by_name("password")[0].send_keys("gkdgo99@")
 driver.find_element_by_xpath("//*[@id='loginForm']/div/div[3]/button").submit()
 
+
 time.sleep(2)  # 크롬 지연//
 
 # 로그인 후 타켓 URL 이동을 위한 URL 재 호출
@@ -75,3 +76,5 @@ for i in insta:  # 이미지가 들어있는 게시물 전체 갯수 만큼 반�
 
     db.db_zerowaste.insert_one(doc)  # DB 저장
     print(doc)
+
+

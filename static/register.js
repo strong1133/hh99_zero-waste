@@ -36,6 +36,7 @@ function overlap_check() {
         alert('아이디를 입력하세요')
         return;
     }
+
     $.ajax({
         type: 'POST',
         url: '/register/overlap_check',
